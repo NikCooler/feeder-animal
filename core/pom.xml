@@ -6,16 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.feeder.animal</groupId>
-        <artifactId>feeder-animal-parent</artifactId>
+        <groupId>com.eat.go</groupId>
+        <artifactId>eat-go-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>core</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Feeder animal core module</name>
-
-    <dependencies>
-    </dependencies>
+    <name>Eat and Go core module</name>
 
 </project>
