@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.util.Set;
 
 
+/**
+ * @author Nik Smirnov
+ */
 @Entity
 @Table(name = "owner")
 public class Owner extends Identifiable {

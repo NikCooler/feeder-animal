@@ -1,12 +1,15 @@
 package com.eat.go.validator;
 
 import com.eat.go.owner.OwnerDto;
-import com.eat.go.owner.domain.Owner;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
 
+
+/**
+ * @author Nik Smirnov
+ */
 @Component
 public class JsonValidator {
 

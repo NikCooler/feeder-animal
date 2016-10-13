@@ -6,6 +6,9 @@ import com.eat.go.pet.dict.PetType;
 import javax.persistence.*;
 
 
+/**
+ * @author Nik Smirnov
+ */
 @Entity
 @Table(name = "pet")
 public class Pet extends Identifiable {

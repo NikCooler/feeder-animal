@@ -4,40 +4,56 @@ Eat & Go server
 
 ## First setup (Step by step)
 
-#### 1. Download MySQL server and configure it
+#### 1. Download and configure
+
+- MySQL server 5
+- Maven 3
+- Java 8
+
+Configure `M2_HOME` and `JAVA_HOME` variables.
 
 #### 2. Clone Github project:
 
 <https://github.com/NikCooler/feeder-animal>
 
-#### 3. Configure 'liquibase.properties'
+#### 3. Configure `liquibase.properties`, `application.properties`
 
 This file for configure connection to DB.
+Create new file based on `liquibase.properties.example` with name `liquibase.properties` and place it in the same folder.
+
+- Change next parameters in `liquibase.properties`:
 ```
 url: CHANGE IT
 login: CHANGE IT
 password: CHANGE IT
 ```
-- Execute `mvn liquibase:update` in package `liquibase`
 
-Do not commit this file - 'liquibase.properties'.
+Create new file based on `application.properties.example` with name `liquibase.properties` and place it in the same folder.
+- Change next parameters in `application.properties`:
+```
+spring.datasource.url = CHANGE IT!
+spring.datasource.username = CHANGE IT!
+spring.datasource.password = CHANGE IT!
+```
 
 #### 4. Build project
+
+Execute next command:
 
 ```
 mvn clean install
 ```
 
-#### 5. Program arguments
+#### 5. Run project
 
-```
---spring.config.name=application
---spring.config.location={PATH_TO_YOUR_CONFIG_FOLDER}
-```
+- If you use Intellij Idea:
 
-For example: `file:/C:/work/eat&go/`
+Run method `main` from class `com.eat.go.EatAndGoApp`
 
-#### 6. Run application
+
+- If you use command line:
+
+Run application
 
 ```
 mvn spring-boot:run -Drun.arguments="--spring.config.name=..,--spring.config.location=.."
@@ -48,5 +64,6 @@ For example:
 mvn spring-boot:run -Drun.arguments="--spring.config.name=application,--spring.config.location=file:/C:/work/eat&go/"
 ```
 
+#### 6. Try to go on http://localhost:8084/swagger-ui.html
 
 

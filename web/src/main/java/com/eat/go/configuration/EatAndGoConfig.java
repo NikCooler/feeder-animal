@@ -12,6 +12,10 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.Properties;
 
+
+/**
+ * @author Nik Smirnov
+ */
 @Configuration
 public class EatAndGoConfig {
 

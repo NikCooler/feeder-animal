@@ -6,6 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
+
+/**
+ * @author Nik Smirnov
+ */
 @MappedSuperclass
 public abstract class Identifiable implements Serializable {
 

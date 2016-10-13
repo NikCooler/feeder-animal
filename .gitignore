@@ -1,5 +1,5 @@
 *.iml
 /.idea
+/target
 liquibase.properties
 application.properties
-schedule.properties

@@ -5,6 +5,9 @@ import com.eat.go.common.Identifiable;
 import javax.persistence.*;
 
 
+/**
+ * @author Nik Smirnov
+ */
 @Entity
 @Table(name = "pet")
 public class TimeTable extends Identifiable {

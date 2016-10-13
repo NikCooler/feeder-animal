@@ -3,6 +3,9 @@ package com.eat.go.pet;
 import com.eat.go.pet.dict.PetType;
 
 
+/**
+ * @author Nik Smirnov
+ */
 public class PetDto {
 
     private String nickname;

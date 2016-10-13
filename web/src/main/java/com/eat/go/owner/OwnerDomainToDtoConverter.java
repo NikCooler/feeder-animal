@@ -4,6 +4,10 @@ import com.eat.go.owner.domain.Owner;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+
+/**
+ * @author Nik Smirnov
+ */
 @Component
 public class OwnerDomainToDtoConverter implements Converter<Owner, OwnerDto> {
 

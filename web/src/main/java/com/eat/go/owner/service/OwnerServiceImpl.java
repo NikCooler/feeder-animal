@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+/**
+ * @author Nik Smirnov
+ */
 @Service("ownerService")
 public class OwnerServiceImpl implements OwnerService {
 

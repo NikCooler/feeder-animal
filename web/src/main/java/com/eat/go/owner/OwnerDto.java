@@ -1,6 +1,9 @@
 package com.eat.go.owner;
 
 
+/**
+ * @author Nik Smirnov
+ */
 public class OwnerDto {
 
     private String name;
