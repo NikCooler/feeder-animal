@@ -1,5 +1,8 @@
 package com.eat.go.owner.service;
 
+import com.eat.go.owner.OwnerDomainToDtoConverter;
+import com.eat.go.owner.OwnerDto;
+import com.eat.go.owner.OwnerDtoToDomainConverter;
 import com.eat.go.owner.domain.Owner;
 import com.eat.go.owner.repo.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +13,22 @@ import org.springframework.stereotype.Service;
 public class OwnerServiceImpl implements OwnerService {
 
     @Autowired
+    private OwnerDtoToDomainConverter toDomainConverter;
+
+    @Autowired
+    private OwnerDomainToDtoConverter toDtoConverter;
+
+    @Autowired
     private OwnerRepository repository;
 
     @Override
-    public Owner create(Owner owner) {
-        repository.save(owner);
-        return repository.findOne(owner.getId());
+    public OwnerDto create(OwnerDto dto) {
+        Owner owner = repository.save(toDomainConverter.convert(dto));
+        return toDtoConverter.convert(repository.findOne(owner.getId()));
     }
 
     @Override
-    public Owner get(Integer id) {
-        return repository.findOne(id);
+    public OwnerDto get(Integer id) {
+        return toDtoConverter.convert(repository.findOne(id));
     }
 }

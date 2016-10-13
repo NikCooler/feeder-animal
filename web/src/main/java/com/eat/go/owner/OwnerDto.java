@@ -1,24 +1,14 @@
-package com.eat.go.user.domain;
-
-import com.eat.go.common.Identifiable;
-
-import javax.persistence.*;
+package com.eat.go.owner;
 
 
-@Entity
-@Table(name = "owner")
-public class User extends Identifiable {
+public class OwnerDto {
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
     private String password;
 
     public String getName() {
@@ -52,5 +42,4 @@ public class User extends Identifiable {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }
