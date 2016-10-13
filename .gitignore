@@ -1,2 +1,5 @@
 *.iml
 /.idea
+liquibase.properties
+application.properties
+schedule.properties
