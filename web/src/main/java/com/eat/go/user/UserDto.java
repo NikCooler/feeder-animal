@@ -1,10 +1,10 @@
-package com.eat.go.owner;
+package com.eat.go.user;
 
 
 /**
  * @author Nik Smirnov
  */
-public class OwnerDto {
+public class UserDto {
 
     private String name;
 

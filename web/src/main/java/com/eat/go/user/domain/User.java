@@ -1,4 +1,4 @@
-package com.eat.go.owner.domain;
+package com.eat.go.user.domain;
 
 import com.eat.go.common.Identifiable;
 import com.eat.go.pet.domain.Pet;
@@ -11,8 +11,8 @@ import java.util.Set;
  * @author Nik Smirnov
  */
 @Entity
-@Table(name = "owner")
-public class Owner extends Identifiable {
+@Table(name = "user")
+public class User extends Identifiable {
 
     @Column(name = "name")
     private String name;

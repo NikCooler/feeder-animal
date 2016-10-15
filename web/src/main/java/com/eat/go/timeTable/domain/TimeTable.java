@@ -1,36 +1,48 @@
 package com.eat.go.timeTable.domain;
 
 import com.eat.go.common.Identifiable;
+import com.eat.go.user.domain.User;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
  * @author Nik Smirnov
  */
 @Entity
-@Table(name = "pet")
+@Table(name = "timetable")
 public class TimeTable extends Identifiable {
 
-    @Column(name = "event")
-    private String event;
+    @Column(name = "weight")
+    private Integer weight;
 
-    @Column(name = "cron_expression")
-    private String cronExpression;
+    @Column(name = "time")
+    private Date time;
 
-    public String getEvent() {
-        return event;
+    private User user;
+
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
-    public String getCronExpression() {
-        return cronExpression;
+    public Date getTime() {
+        return time;
     }
 
-    public void setCronExpression(String cronExpression) {
-        this.cronExpression = cronExpression;
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

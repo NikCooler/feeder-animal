@@ -178,22 +178,28 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="create-table-owner" author="nik" runOnChange="true">
+    <changeSet id="create-table-user-profile" author="nik" runOnChange="true">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="owner"/>
+                <tableExists tableName="user_profile"/>
             </not>
         </preConditions>
 
-        <createTable tableName="owner">
+        <createTable tableName="user_profile">
             <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="PK_owner" nullable="false" unique="true"/>
+                <constraints primaryKey="true" primaryKeyName="PK_user_profile" nullable="false" unique="true"/>
             </column>
-            <column name="name" type="varchar(100)"/>
-            <column name="surname" type="varchar(100)"/>
-            <column name="email" type="varchar(255)"/>
-            <column name="password" type="varchar(255)"/>
+            <column name="gender" type="varchar(20)"/>
+            <column name="photo_url" type="varchar(1000)"/>
+            <column name="id_user" type="int"/>
         </createTable>
+        <addForeignKeyConstraint
+                constraintName="fk_user_profile2user"
+                baseTableName="user_profile"
+                baseColumnNames="id_user"
+                referencedTableName="user"
+                referencedColumnNames="id"
+        />
     </changeSet>
 
     <changeSet id="create-table-pet" author="nik" runOnChange="true">
@@ -210,15 +216,39 @@
             <column name="nickname" type="varchar(100)"/>
             <column name="age" type="int"/>
             <column name="pet_type" type="varchar(20)"/>
-            <column name="password" type="varchar(255)"/>
-            <column name="id_owner" type="int"/>
+            <column name="id_user" type="int"/>
         </createTable>
 
         <addForeignKeyConstraint
-                constraintName="fk_pet2owner"
+                constraintName="fk_pet2user"
                 baseTableName="pet"
-                baseColumnNames="id_owner"
-                referencedTableName="owner"
+                baseColumnNames="id_user"
+                referencedTableName="user"
+                referencedColumnNames="id"
+        />
+    </changeSet>
+
+    <changeSet id="create-table-timetable" author="nik" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="timetable"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="timetable">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="PK_timetable" nullable="false" unique="true"/>
+            </column>
+            <column name="weight" type="int"/>
+            <column name="time" type="datetime"/>
+            <column name="id_user" type="int"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                constraintName="fk_timetable2user"
+                baseTableName="timetable"
+                baseColumnNames="id_user"
+                referencedTableName="user"
                 referencedColumnNames="id"
         />
     </changeSet>

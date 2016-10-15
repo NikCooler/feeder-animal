@@ -1,6 +1,6 @@
-package com.eat.go.owner;
+package com.eat.go.user;
 
-import com.eat.go.owner.domain.Owner;
+import com.eat.go.user.domain.User;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  * @author Nik Smirnov
  */
 @Component
-public class OwnerDtoToDomainConverter implements Converter<OwnerDto, Owner> {
+public class UserDtoToDomainConverter implements Converter<UserDto, User> {
 
     @Override
-    public Owner convert(OwnerDto dto) {
-        Owner domain = new Owner();
+    public User convert(UserDto dto) {
+        User domain = new User();
         domain.setEmail(dto.getEmail());
         domain.setName(dto.getName());
         domain.setPassword(dto.getPassword());
