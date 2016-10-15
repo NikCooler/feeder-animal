@@ -35,22 +35,22 @@ public class EatAndGoResource {
     private JsonValidator validator;
 
     @RequestMapping(value = "/owner/new", method = RequestMethod.PUT)
-    @ApiOperation(value = "Query for worker profile data", response = OwnerResponse.class, position = 50)
+    @ApiOperation(value = "Resource to create owner", response = OwnerResponse.class)
     public @ResponseBody OwnerResponse createOwner(@RequestBody OwnerDto dto) {
         List<String> fails = validator.validateOwner(dto);
         if (fails.isEmpty()) {
             return new OwnerResponse(ownerService.create(dto));
         }
-        throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "dd");
+        throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "");
     }
 
-    /*@RequestMapping(value =  "/owner/{ownerId}", method = RequestMethod.GET)
-    public @ResponseBody
-    JSONResponse<OwnerDto> getOwner(@PathVariable("ownerId") Integer ownerId) {
+    @RequestMapping(value =  "/owner/{ownerId}", method = RequestMethod.GET)
+    @ApiOperation(value = "Resource to get owner", response = OwnerResponse.class)
+    public @ResponseBody OwnerResponse getOwner(@PathVariable("ownerId") Integer ownerId) {
         if (ownerId != null) {
-            return new JSONResponse<>(ownerService.get(ownerId), JSONResponse.Status.SUCCESS);
+            return new OwnerResponse(ownerService.get(ownerId));
         }
         throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "'ownerId' can not be null");
-    }*/
+    }
 
 }
