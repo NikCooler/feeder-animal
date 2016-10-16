@@ -3,6 +3,7 @@ package com.eat.go.resource;
 import com.eat.go.TimeTableResponse;
 import com.eat.go.UserResponse;
 import com.eat.go.common.CommonUrl;
+import com.eat.go.timeTable.TimeTableDto;
 import com.eat.go.timeTable.domain.TimeTable;
 import com.eat.go.timeTable.service.TimeTableService;
 import com.eat.go.validator.JsonValidator;
@@ -26,7 +27,7 @@ public class TimeTableResource {
 
     @RequestMapping(value = CommonUrl.TIMETABLE + "/create", method = RequestMethod.PUT)
     @ApiOperation(value = "Resource to create timetable", response = TimeTableResponse.class)
-    public @ResponseBody TimeTableResponse createTimeTable(@RequestBody TimeTable dto) {
+    public @ResponseBody TimeTableResponse createTimeTable(@RequestBody TimeTableDto dto) {
         List<String> fails = validator.validateTimeTable(dto);
         if (fails.isEmpty()) {
             return new TimeTableResponse(Collections.singletonList(timeTableService.create(dto)));
@@ -47,7 +48,7 @@ public class TimeTableResource {
     @ApiOperation(value = "Resource to get all timetable created by user", response = TimeTableResponse.class)
     public @ResponseBody TimeTableResponse getTimeTables(@PathVariable("userId") Integer userId) {
         if (userId != null) {
-            return new TimeTableResponse(Collections.singletonList(timeTableService.get(userId)));
+            return new TimeTableResponse(timeTableService.getByUser(userId));
         }
         throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "'userId' can not be null");
     }

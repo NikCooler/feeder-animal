@@ -1,5 +1,6 @@
 package com.eat.go.validator;
 
+import com.eat.go.timeTable.TimeTableDto;
 import com.eat.go.timeTable.domain.TimeTable;
 import com.eat.go.user.UserCredential;
 import com.eat.go.user.UserDto;
@@ -23,7 +24,7 @@ public class JsonValidator {
         return Collections.emptyList();
     }
 
-    public List<String> validateTimeTable(TimeTable dto) {
+    public List<String> validateTimeTable(TimeTableDto dto) {
         return Collections.emptyList();
     }
 }

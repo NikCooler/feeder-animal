@@ -2,6 +2,7 @@ package com.eat.go.user.domain;
 
 import com.eat.go.common.Identifiable;
 import com.eat.go.pet.domain.Pet;
+import com.eat.go.timeTable.domain.TimeTable;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -28,6 +29,9 @@ public class User extends Identifiable {
 
     @OneToMany(mappedBy = "user")
     private Set<Pet> pets;
+
+    @OneToMany(mappedBy = "user")
+    private Set<TimeTable> timeTables;
 
     public String getName() {
         return name;
@@ -67,5 +71,13 @@ public class User extends Identifiable {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    public Set<TimeTable> getTimeTables() {
+        return timeTables;
+    }
+
+    public void setTimeTables(Set<TimeTable> timeTables) {
+        this.timeTables = timeTables;
     }
 }

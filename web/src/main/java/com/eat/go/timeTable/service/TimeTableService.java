@@ -1,6 +1,7 @@
 package com.eat.go.timeTable.service;
 
 
+import com.eat.go.timeTable.TimeTableDto;
 import com.eat.go.timeTable.domain.TimeTable;
 
 import java.util.List;
@@ -10,10 +11,10 @@ import java.util.List;
  */
 public interface TimeTableService {
 
-    TimeTable create(TimeTable entity);
+    TimeTableDto create(TimeTableDto entity);
 
-    TimeTable get(Integer timetableId);
+    TimeTableDto get(Integer timetableId);
 
-    List<TimeTable> getByUser(Integer userId);
+    List<TimeTableDto> getByUser(Integer userId);
 
 }
