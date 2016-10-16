@@ -2,6 +2,7 @@ package com.eat.go.pet.domain;
 
 import com.eat.go.common.Identifiable;
 import com.eat.go.pet.dict.PetType;
+import com.eat.go.user.domain.User;
 
 import javax.persistence.*;
 
@@ -22,6 +23,10 @@ public class Pet extends Identifiable {
     @Column(name = "pet_type")
     @Enumerated(EnumType.STRING)
     private PetType pet_type;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_user")
+    private User user;
 
     public String getNickname() {
         return nickname;

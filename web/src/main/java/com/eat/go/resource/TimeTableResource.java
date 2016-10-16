@@ -16,7 +16,6 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping(CommonUrl.TIMETABLE)
 public class TimeTableResource {
 
     @Autowired

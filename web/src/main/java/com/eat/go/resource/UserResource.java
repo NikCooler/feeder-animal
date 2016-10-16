@@ -20,7 +20,6 @@ import java.util.List;
  * @author Nik Smirnov
  */
 @RestController
-@RequestMapping(CommonUrl.USER)
 public class UserResource {
 
     @Autowired

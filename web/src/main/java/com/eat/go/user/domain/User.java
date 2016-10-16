@@ -26,8 +26,7 @@ public class User extends Identifiable {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    @JoinColumn(name = "id_pet", nullable = false)
+    @OneToMany(mappedBy = "user")
     private Set<Pet> pets;
 
     public String getName() {

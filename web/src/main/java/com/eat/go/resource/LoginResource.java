@@ -15,7 +15,6 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(CommonUrl.API)
 public class LoginResource {
 
     @Autowired
