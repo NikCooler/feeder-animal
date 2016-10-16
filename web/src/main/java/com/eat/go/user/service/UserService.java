@@ -1,5 +1,6 @@
 package com.eat.go.user.service;
 
+import com.eat.go.user.UserCredential;
 import com.eat.go.user.UserDto;
 
 
@@ -8,8 +9,9 @@ import com.eat.go.user.UserDto;
  */
 public interface UserService {
 
-    UserDto create(UserDto owner);
+    UserDto create(UserDto user);
 
     UserDto get(Integer id);
 
+    String processAuthenticate(UserCredential credential);
 }

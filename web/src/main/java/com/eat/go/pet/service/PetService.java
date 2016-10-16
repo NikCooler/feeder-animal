@@ -8,7 +8,7 @@ import com.eat.go.pet.domain.Pet;
  */
 public interface PetService {
 
-    public Pet create(Pet owner);
+    public Pet create(Pet user);
 
     public Pet get(Integer id);
 }

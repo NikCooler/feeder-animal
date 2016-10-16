@@ -20,6 +20,8 @@ public class TimeTable extends Identifiable {
     @Column(name = "time")
     private Date time;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_user", nullable = false)
     private User user;
 
     public Integer getWeight() {

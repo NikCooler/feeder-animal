@@ -1,6 +1,7 @@
 package com.eat.go.resource;
 
 import com.eat.go.UserResponse;
+import com.eat.go.common.CommonUrl;
 import com.eat.go.user.UserDto;
 import com.eat.go.user.service.UserService;
 import com.eat.go.pet.service.PetService;
@@ -19,50 +20,33 @@ import java.util.List;
  * @author Nik Smirnov
  */
 @RestController
+@RequestMapping(CommonUrl.USER)
 public class UserResource {
 
     @Autowired
     private UserService userService;
 
     @Autowired
-    private PetService petService;
-
-    @Autowired
-    private TimeTableService timeTableService;
-
-    @Autowired
     private JsonValidator validator;
 
-    @RequestMapping(value = "/owner/register", method = RequestMethod.PUT)
-    @ApiOperation(value = "Resource to create user", response = UserResponse.class)
-    public @ResponseBody
-    UserResponse createOwner(@RequestBody UserDto dto) {
-        List<String> fails = validator.validateOwner(dto);
+    @RequestMapping(value = CommonUrl.USER_REGISTER, method = RequestMethod.PUT)
+    @ApiOperation(value = "Resource to register user", response = UserResponse.class)
+    public @ResponseBody UserResponse registerUser(@RequestBody UserDto dto) {
+        List<String> fails = validator.validateUser(dto);
         if (fails.isEmpty()) {
             return new UserResponse(userService.create(dto));
         }
         throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "");
     }
 
-    @RequestMapping(value = "/owner/register", method = RequestMethod.PUT)
-    @ApiOperation(value = "Resource to create user", response = UserResponse.class)
-    public @ResponseBody
-    UserResponse login(@RequestBody UserDto dto) {
-        List<String> fails = validator.validateOwner(dto);
-        if (fails.isEmpty()) {
-            return new UserResponse(userService.create(dto));
-        }
-        throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "");
-    }
-
-    @RequestMapping(value =  "/owner/{ownerId}", method = RequestMethod.GET)
+    @RequestMapping(value =  CommonUrl.USER + "/{userId}", method = RequestMethod.GET)
     @ApiOperation(value = "Resource to get user", response = UserResponse.class)
     public @ResponseBody
-    UserResponse getOwner(@PathVariable("ownerId") Integer ownerId) {
-        if (ownerId != null) {
-            return new UserResponse(userService.get(ownerId));
+    UserResponse getUser(@PathVariable("userId") Integer userId) {
+        if (userId != null) {
+            return new UserResponse(userService.get(userId));
         }
-        throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "'ownerId' can not be null");
+        throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "'userId' can not be null");
     }
 
 }
